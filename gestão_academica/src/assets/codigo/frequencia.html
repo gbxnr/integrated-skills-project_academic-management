@@ -5,34 +5,282 @@
   <title>Frequência — Área do Aluno</title>
   <link rel="stylesheet" href="css/estilo.css">
   <style>
-    :root{
-  --bg:#F5F7FB; --card:#FFFFFF; --muted:#6B7280; --accent:#4F46E5; --accent-2:#06B6D4; --danger:#EF4444;
-  --radius:12px; --shadow:0 6px 18px rgba(15,23,42,0.08);
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto;
+     :root{
+
+  --blue1: #052659;
+  --bg:#F5F7FB;
+  --card:#FFFFFF;
+  --muted:#6B7280;
+  --accent:#4F46E5;
+  --accent-2:#06B6D4;
+  --danger:#EF4444;
+  --glass: rgba(255,255,255,0.6);
+  --radius:12px;
+  --shadow: 0 6px 18px rgba(15,23,42,0.08);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+*{
+  box-sizing:border-box;
+}
+html, body{
+  height:100%;
+  margin:0;
+  background:linear-gradient(180deg,#F6F8FF 0%,var(--bg) 100%);
+  color:#0F172A;
+}
+a{
+  color:inherit;
+  text-decoration:none;
+}
+img{
+  max-width:100%;
+  display:block;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{background:linear-gradient(180deg,#F6F8FF 0%,var(--bg) 100%);color:#0F172A;}
-a{text-decoration:none;color:inherit}
-.container{display:grid;grid-template-columns:260px 1fr;max-width:1200px;margin:28px auto;gap:24px;padding:24px}
-@media (max-width:900px){.container{grid-template-columns:1fr}}
+/* ===== Layout ===== */
+.container{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:24px;
+  max-width:1200px;
+  margin:28px auto;
+  padding:24px;
+}
+@media (max-width:900px){
+  .container{
+    grid-template-columns:1fr;
+    padding:16px;
+  }
+}
 
-.sidebar{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;height:fit-content}
-.brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}
-.logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-.brand h1{font-size:16px;margin:0}
-.profile{display:flex;gap:12px;align-items:center;padding:8px;border-radius:10px;background:linear-gradient(180deg,rgba(79,70,229,0.06),transparent)}
-.avatar{width:56px;height:56px;border-radius:10px;background:#EEF2FF;display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--accent)}
-.pinfo small{display:block;color:var(--muted)}
-.nav{margin-top:16px}
-.nav a{display:flex;gap:10px;align-items:center;padding:10px;border-radius:8px;color:#0F172A;margin-bottom:6px}
-.nav a:hover, .nav a.active{background:#EEF2FF;font-weight:600;color:var(--accent)}
+/* ===== Sidebar ===== */
+.sidebar{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px;
+  height:fit-content;
+}
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:18px;
+}
+.logo{
+  width:44px;
+  height:44px;
+  border-radius:10px;
+  background:linear-gradient(180deg,#052659,#5483B3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:700;
+}
+.brand h1{
+  font-size:16px;
+  margin:0;
+}
+.profile{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:8px;
+  border-radius:10px;
+  background:linear-gradient(180deg,rgba(79,70,229,0.06),transparent);
+}
+.avatar{
+  width:56px;
+  height:56px;
+  border-radius:10px;
+  background:#EEF2FF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  color:var(--blue1);
+}
+.pinfo small{
+  display:block;
+  color:var(--muted);
+}
+.nav{
+  margin-top:16px;
+}
+.nav a{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:10px;
+  border-radius:8px;
+  color:#0F172A;
+  margin-bottom:6px;
+}
+.nav a:hover{
+  background:#F3F4F6;
+}
 
-.main{min-height:80vh}
-.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;font-weight:600;border:0;cursor:pointer}
-.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow);margin-bottom:18px}
-.small{font-size:13px;color:var(--muted);text-align:center;margin-top:18px}
+/* ===== Main ===== */
+.main{
+  min-height:80vh;
+}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  margin-bottom:18px;
+}
+.search{
+  flex:1;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  background:var(--card);
+  padding:10px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+.search input{
+  border:0;
+  outline:0;
+  font-size:14px;
+  background:transparent;
+}
+.actions{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.btn{
+  background:var(--blue1);
+  color:white;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:600;
+  border:0;
+  cursor:pointer;
+}
+
+/* ===== Dashboard grid ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-bottom:18px;
+}
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:repeat(1,1fr);
+  }
+}
+.card{
+  background:var(--card);
+  padding:16px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+.card h3{
+  margin:0 0 8px 0;
+  font-size:14px;
+}
+.metric{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.big{
+  font-size:28px;
+  font-weight:700;
+}
+.sub{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ===== Tables & lists ===== */
+.table{
+  overflow:auto;
+  background:transparent;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th, td{
+  padding:12px 10px;
+  text-align:left;
+  border-bottom:1px solid #F3F4F6;
+  font-size:14px;
+}
+th{
+  color:var(--muted);
+  font-weight:600;
+}
+.status{
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:13px;
+}
+.aprovado{
+  background:rgba(16,185,129,0.12);
+  color:#059669;
+}
+.reprovado{
+  background:rgba(239,68,68,0.08);
+  color:var(--danger);
+}
+
+/* ===== Right column widgets ===== */
+.rightcol{
+  display:grid;
+  gap:18px;
+}
+.messages li{
+  list-style:none;
+  padding:10px;
+  border-radius:10px;
+}
+.msg-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+}
+
+/* ===== Footer small ===== */
+.small{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ===== Utilities ===== */
+.flex{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.chip{
+  background:#F8FAFC;
+  padding:6px 10px;
+  border-radius:8px;
+}
+
+/* ===== Mobile tweaks ===== */
+@media (max-width:900px){
+  .sidebar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .brand h1{
+    display:none;
+  }
+  .profile{
+    display:none;
+  }
+}
 
   </style>
 </head>

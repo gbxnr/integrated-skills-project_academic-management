@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página do Orientador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="orientador.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">O</div>
+        <h1>Orientador</h1>
+      </div>
+      <div class="profile">
+        <div class="avatar">JO</div>
+        <div class="pinfo">
+          <strong>João Silva</strong>
+          <small>Orientador</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="AreaDoAluno.html">Dashboard</a>
+        <a href="alunosOrientados.html">Alunos Orientados</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="config.html">Configurações</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <!-- Topbar -->
+      <div class="topbar">
+        <div class="search">
+          <input type="text" placeholder="Pesquisar alunos...">
+        </div>
+        <div class="actions">
+          <button class="btn">Adicionar Aluno</button>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid">
+        <div class="card">
+          <h3>Total de Alunos</h3>
+          <div class="metric">
+            <span class="big">12</span>
+            <span class="sub">ativos</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Projetos em Andamento</h3>
+          <div class="metric">
+            <span class="big">5</span>
+            <span class="sub">ativos</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Alunos Concluídos</h3>
+          <div class="metric">
+            <span class="big">8</span>
+            <span class="sub">concluíram</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela de Alunos -->
+      <div class="card">
+        <h3>Alunos Orientados</h3>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Projeto</th>
+                <th>Status</th>
+                <th>Última Atualização</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ana Souza</td>
+                <td>Pesquisa AI</td>
+                <td><span class="status aprovado">Em andamento</span></td>
+                <td>20/10/2025</td>
+              </tr>
+              <tr>
+                <td>Carlos Lima</td>
+                <td>App Educacional</td>
+                <td><span class="status aprovado">Em andamento</span></td>
+                <td>18/10/2025</td>
+              </tr>
+              <tr>
+                <td>Maria Fernandes</td>
+                <td>Web Dashboard</td>
+                <td><span class="status reprovado">Concluído</span></td>
+                <td>15/10/2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>
