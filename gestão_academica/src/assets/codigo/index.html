@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gestão Acadêmico</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <h2 class="logo">Gestão Acadêmico</h2>
+        <span class="versao">versão 1.0</span>
+
+        <nav class="menu">
+          <div class="menu-block">
+            <h3>Cadastros</h3>
+            <ul>
+              <li><a href="AreaDoAluno.html">Aréa do Aluno</a></li>
+              <li><a href="#">Orientador</a></li>
+              <li><a href="#">Curso</a></li>
+              <li><a href="#">Publicação</a></li>
+              <li><a href="#">Curso x Aluno</a></li>
+            </ul>
+          </div>
+
+          <div class="menu-block">
+            <h3>Listas</h3>
+            <ul>
+              <li><a href="#">Aluno</a></li>
+              <li><a href="#">Orientador</a></li>
+              <li><a href="#">Curso</a></li>
+              <li><a href="#">Publicação</a></li>
+              <li><a href="#">Curso x Aluno</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="form-card">
+        <h2>Cadastro de Aluno</h2>
+
+        <form id="alunoForm" autocomplete="off">
+          <div class="row">
+            <label for="matricula">Matrícula</label>
+            <input id="matricula" name="matricula" type="text" />
+          </div>
+
+          <div class="row">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" />
+          </div>
+
+          <fieldset class="row radios">
+            <legend>Sexo</legend>
+            <label><input type="radio" name="sexo" value="M" checked /> Masculino</label>
+            <label><input type="radio" name="sexo" value="F" /> Feminino</label>
+          </fieldset>
+
+          <div class="row">
+            <label for="nascimento">Data Nascimento</label>
+            <input id="nascimento" name="nascimento" type="date" />
+          </div>
+
+          <div class="row">
+            <label for="cpf">CPF</label>
+            <input id="cpf" name="cpf" type="text" placeholder="000.000.000-00" />
+          </div>
+
+          <fieldset class="orientador-block">
+            <legend>Orientador do Aluno</legend>
+
+            <label for="orientador">Selecione o Orientador</label>
+            <div class="orientador-row">
+              <select id="orientador" name="orientador">
+                <option value="">-- selecione --</option>
+                <option value="1">Dr. João Silva</option>
+                <option value="2">Profa. Maria Costa</option>
+                <option value="3">Dr. Pedro Souza</option>
+              </select>
+              <button type="button" id="gravarOrientador" class="btn-small">Gravar Orientador</button>
+            </div>
+
+            <p class="orientador-selecionado">Orientador Selecionado: <span id="orientadorSelecionado">nenhum</span></p>
+          </fieldset>
+
+          <div class="actions">
+            <button type="button" id="novo" class="btn">Novo</button>
+            <button type="submit" class="btn primary">Salvar</button>
+            <button type="button" id="excluir" class="btn danger">Excluir</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // JS simples para comportamento básico
+    const form = document.getElementById('alunoForm');
+    const btnNovo = document.getElementById('novo');
+    const btnExcluir = document.getElementById('excluir');
+    const selectOrientador = document.getElementById('orientador');
+    const btnGravarOr = document.getElementById('gravarOrientador');
+    const orientadorSpan = document.getElementById('orientadorSelecionado');
+
+    btnGravarOr.addEventListener('click', () => {
+      const txt = selectOrientador.options[selectOrientador.selectedIndex]?.text || 'nenhum';
+      orientadorSpan.textContent = txt;
+      alert('Orientador gravado: ' + txt);
+    });
+
+    btnNovo.addEventListener('click', () => {
+      form.reset();
+      orientadorSpan.textContent = 'nenhum';
+    });
+
+    btnExcluir.addEventListener('click', () => {
+      if (confirm('Deseja realmente excluir este cadastro?')) {
+        form.reset();
+        orientadorSpan.textContent = 'nenhum';
+        alert('Cadastro excluído (simulação).');
+      }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+      alert('Salvando (simulação):\\n' + JSON.stringify(data, null, 2));
+    });
+  </script>
+</body>
+</html>
